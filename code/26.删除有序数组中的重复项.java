@@ -1,29 +1,29 @@
-import java.util.*;
 /*
- * @lc app=leetcode.cn id=27 lang=java
+ * @lc app=leetcode.cn id=26 lang=java
  *
- * [27] 移除元素
+ * [26] 删除有序数组中的重复项
  */
 
 // @lc code=start
 class Solution {
-    public int removeElement(int[] nums, int val) {
+    public int removeDuplicates(int[] nums) {
         if (nums.length == 0) {
             return 0;
         }
         int last = 0;
         int finder = 0;
-        while (last < nums.length - 1) {
+        while (last < nums.length-1) {
             while (nums[last] == nums[finder]) {
                 finder++;
                 if (finder == nums.length) {
-                    return last;
+                    return last+1;
                 }
             }
-            nums[last] = nums[finder];
+            nums[last+1] = nums[finder];
             last++;
         }
-        return last;
+        return last+1;
     }
 }
 // @lc code=end
+
