@@ -11,19 +11,16 @@ class Solution {
         if (nums.length == 0) {
             return 0;
         }
-        int last = 0;
-        int finder = 0;
-        while (last < nums.length - 1) {
-            while (nums[last] == nums[finder]) {
-                finder++;
-                if (finder == nums.length) {
-                    return last;
+        int cnt = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (val != nums[i]) {
+                if (nums[cnt] != nums[i]) {
+                    nums[cnt] = nums[i];
                 }
+                cnt++;
             }
-            nums[last] = nums[finder];
-            last++;
         }
-        return last;
+        return cnt;
     }
 }
 // @lc code=end
