@@ -27,6 +27,19 @@ class Solution {
             res.add(matrix[rows][cols]);
             return;
         }
+        if (begin == rows && rows < cols) {
+            for(int i=begin;i<=cols;i++){
+                res.add(matrix[rows][i]);
+            }
+            return;
+        }
+        if (begin == cols && cols < rows) {
+            for(int i=begin;i<=rows;i++){
+                res.add(matrix[i][cols]);
+            }
+            return;
+        }
+
         for (int i = begin; i < cols; i++) {
             res.add(matrix[begin][i]);
         }
