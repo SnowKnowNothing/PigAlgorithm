@@ -28,11 +28,11 @@ class Solution {
             return;
         }
         for (int i = index; i < nums.length; i++) {
-            if (i > 0 && nums[i] == nums[i - 1]) {
+            if (i > index && nums[i] == nums[i - 1]) {
                 continue;
             }
             numbers.add(nums[i]);
-            findSumList(res, nums, target - nums[i], i, numbers);
+            findSumList(res, nums, target - nums[i], i+1, numbers);
             numbers.remove(numbers.size() - 1);
         }
     }
