@@ -21,8 +21,29 @@
  * }
  */
 class Solution {
+    TreeNode targetOne=null,targetTwo=null,pre=null;
     public void recoverTree(TreeNode root) {
-        
+        inOrderTraverse(root);
+        if(targetOne!=null && targetTwo!=null){
+            int tmp=targetOne.val;
+            targetOne.val=targetTwo.val;
+            targetTwo.val=tmp;
+        }
+    }
+
+    private void inOrderTraverse(TreeNode root) {
+        if(root==null){
+            return ;
+        }
+        inOrderTraverse(root.left);
+        if(pre!=null && pre.val>root.val){
+            if(targetOne==null){
+                targetOne=pre;
+            }
+            targetTwo=root;
+        }
+        pre=root;
+        inOrderTraverse(root.right);
     }
 }
 // @lc code=end
