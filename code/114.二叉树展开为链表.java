@@ -1,5 +1,4 @@
-import java.beans.PropertyDescriptor;
-import java.util.LinkedList;
+import java.util.*;
 
 /*
  * @lc app=leetcode.cn id=114 lang=java

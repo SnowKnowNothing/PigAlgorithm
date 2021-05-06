@@ -1,4 +1,3 @@
-import jdk.internal.util.xml.impl.ReaderUTF16;
 
 /*
  * @lc app=leetcode.cn id=112 lang=java

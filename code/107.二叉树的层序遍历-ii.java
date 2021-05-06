@@ -1,8 +1,5 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
-import javax.swing.tree.TreeNode;
 
 /*
  * @lc app=leetcode.cn id=107 lang=java
