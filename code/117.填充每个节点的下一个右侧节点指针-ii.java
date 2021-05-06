@@ -1,9 +1,7 @@
-import java.util.*;
-
 /*
- * @lc app=leetcode.cn id=116 lang=java
+ * @lc app=leetcode.cn id=117 lang=java
  *
- * [116] 填充每个节点的下一个右侧节点指针
+ * [117] 填充每个节点的下一个右侧节点指针 II
  */
 
 // @lc code=start
@@ -56,3 +54,4 @@ class Solution {
     }
 }
 // @lc code=end
+
