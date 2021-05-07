@@ -39,6 +39,7 @@ class Solution {
             sum = left + right + root.val;
         }
         maxValue = Math.max(maxValue, sum);
+        //如果有负数时就只取当前根结点的val
         if (Math.max(left, right) < 0) {
             return root.val;
         } else {
