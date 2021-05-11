@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=226 lang=java
+ * @lc app=leetcode.cn id=222 lang=java
  *
- * [226] 翻转二叉树
+ * [222] 完全二叉树的节点个数
  */
 
 // @lc code=start
@@ -21,17 +21,11 @@
  * }
  */
 class Solution {
-    public TreeNode invertTree(TreeNode root) {
+    public int countNodes(TreeNode root) {
         if(root==null){
-            return null;
+            return 0;
         }
-        TreeNode tmp=root.left;
-        root.left=root.right;
-        root.right=tmp;
-        invertTree(root.left);
-        invertTree(root.right);
-
-        return root;
+        return countNodes(root.right)+countNodes(root.left)+1;
     }
 }
 // @lc code=end

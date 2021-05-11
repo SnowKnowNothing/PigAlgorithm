@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=226 lang=java
+ * @lc app=leetcode.cn id=230 lang=java
  *
- * [226] 翻转二叉树
+ * [230] 二叉搜索树中第K小的元素
  */
 
 // @lc code=start
@@ -21,17 +21,8 @@
  * }
  */
 class Solution {
-    public TreeNode invertTree(TreeNode root) {
-        if(root==null){
-            return null;
-        }
-        TreeNode tmp=root.left;
-        root.left=root.right;
-        root.right=tmp;
-        invertTree(root.left);
-        invertTree(root.right);
+    public int kthSmallest(TreeNode root, int k) {
 
-        return root;
     }
 }
 // @lc code=end
