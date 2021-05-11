@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * @lc app=leetcode.cn id=230 lang=java
  *
@@ -22,7 +25,18 @@
  */
 class Solution {
     public int kthSmallest(TreeNode root, int k) {
+        List<Integer> list=new ArrayList<>();
+        inOrderTraverse(root,list);
+        return list.get(k-1);
+    }
 
+    private void inOrderTraverse(TreeNode root, List<Integer> list) {
+        if(root==null){
+            return ;
+        }
+        inOrderTraverse(root.left, list);
+        list.add(root.val);
+        inOrderTraverse(root.right, list);
     }
 }
 // @lc code=end
