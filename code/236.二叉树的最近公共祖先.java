@@ -1,3 +1,8 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 /*
  * @lc app=leetcode.cn id=236 lang=java
  *
@@ -10,36 +15,37 @@
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
 class Solution {
+    Map<Integer,TreeNode> ancestorMap=new HashMap<>();
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        Stack<TreeNode> pStack = new Stack<TreeNode>();
-        Stack<TreeNode> qStack = new Stack<TreeNode>();
-        getAcestorStack(root, pStack, p);
-        getAcestorStack(root, qStack, q);
-        pStack.push(p);
-        qStack.push(q);
-        TreeNode res = null;
-        for (int i = 0; i < pStack.size() && i < qStack.size(); i++) {
-            if (pStack.get(i).val == qStack.get(i).val) {
-                res = pStack.get(i);
-            } else {
-                break;
+        getAcestorMap(root);
+        Set<Integer> pSet=new HashSet<>();
+        while(p!=null){
+            TreeNode node=ancestorMap.get(p.val);
+            pSet.add(node.val);
+            p=node;
+        }
+        while(true){
+            if(pSet.contains(q.val)){
+                return q;
+            }else{
+                q=ancestorMap.get(q.val);
             }
         }
-        return res;
-
     }
 
-    public void getAcestorStack(TreeNode root, Stack<TreeNode> stack, TreeNode node) {
+    public void getAcestorMap(TreeNode root) {
         if (root == null) {
             return;
         }
-        stack.push(root);
-        if (root.val == node.val) {
-            return;
+        if(root.left!=null){
+            ancestorMap.put(root.left.val,root);
+            getAcestorMap(root.left);
         }
-        getAcestorStack(root.left, stack, node);
-        getAcestorStack(root.right, stack, node);
-        stack.pop();
+        if(root.right!=null){
+            ancestorMap.put(root.right.val,root);
+            getAcestorMap(root.right);
+        }
     }
+
 }
 // @lc code=end
