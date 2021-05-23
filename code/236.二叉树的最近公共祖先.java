@@ -20,8 +20,8 @@ class Solution {
         getAcestorMap(root);
         Set<Integer> pSet=new HashSet<>();
         while(p!=null){
+            pSet.add(p.val);
             TreeNode node=ancestorMap.get(p.val);
-            pSet.add(node.val);
             p=node;
         }
         while(true){
